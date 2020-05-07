@@ -1,0 +1,7 @@
+const dbroutes = require('./dbroutes');
+const contactRoutes = require('./contactRoutes');
+
+module.exports = (app) => {
+  app.use('/', dbroutes);
+  app.use('/', contactRoutes);
+};

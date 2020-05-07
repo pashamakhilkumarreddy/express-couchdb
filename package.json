@@ -1,0 +1,44 @@
+{
+  "name": "express-couchdb",
+  "version": "1.0.0",
+  "description": "Application demonstrating the usage of CouchDB in Express",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon src/app.js --exec 'npm run lint:fix && node'",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix",
+    "prod": "pm2 start src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pashamakhilkumarreddy/express-couchdb.git"
+  },
+  "author": "Pasham Akhil Kumar Reddy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pashamakhilkumarreddy/express-couchdb/issues"
+  },
+  "homepage": "https://github.com/pashamakhilkumarreddy/express-couchdb#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^8.2.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "helmet": "^3.22.0",
+    "json": "^9.0.6",
+    "logger": "0.0.1",
+    "method-override": "^3.0.0",
+    "nano": "^8.2.2",
+    "pm2": "^4.4.0",
+    "pug": "^2.0.4",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "nodemon": "^2.0.3"
+  }
+}
