@@ -38,6 +38,35 @@ module.exports = {
       });
     }
   },
+  async getAllContacts(req, res) {
+    try {
+      const contacts = await db.list();
+      if (contacts) {
+        res.status(200).send({
+          err: false,
+          messages: [
+            'Successfully fetched contacts',
+          ],
+          contacts: JSON.stringify(contacts),
+        });
+        return;
+      }
+      res.status(404).send({
+        err: true,
+        messages: [
+          'No records found',
+        ],
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send({
+        err: true,
+        messages: [
+          'Internal server error',
+        ],
+      });
+    }
+  },
   async viewContact(req, res) {
     try {
       const {

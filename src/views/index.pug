@@ -1,0 +1,46 @@
+extend layout 
+
+block content   
+    form.form(method="POST", action='/contact')
+        h2.title Add a new contact
+        .field
+            label.label(for="name") Name
+            .control
+                input#name.input(type="text", name="name", placeholder="Please enter the name")
+        .field
+            label.label(for="phone") Phone
+            .control
+                input#phone.input(type="text", name="phone", placeholder="Please enter the phone number")
+        .field
+            .control
+                button.button.is-link(type="submit") Add Contact
+
+    form.form(method="POST", action="/contact")
+        h2.title View contact
+        .field
+            label.label(for="contact") Contact
+            .control 
+                input#contact.input(type="text", name="contact", placeholder="Please enter the contact")
+        .field 
+            .control
+                button.button.is-info(type="submit") View Contact
+
+    form.form(method="POST", action="/createdb")
+        h2.title Add a new Database
+        .field
+            label.label(for="database-name") Database Name
+            .control
+                input#database-name.input(type="text", name="database", placeholder="Please enter the database name")
+        .field
+            .control
+                button.button.is-light.is-primary(type="submit") Add Database
+
+    form.form(method="DELETE", action="/contact")
+        h2.title Delete a contact
+        .field
+            label.label(for="delete-database") Contact
+            .control
+                input#delete-database.input(type="text", name="delete-database", placeholder="Please enter the database name")
+        .field
+            .control
+                button.button.is-light.is-danger(type="submit") Delete Database
