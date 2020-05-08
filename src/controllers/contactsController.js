@@ -1,5 +1,7 @@
 /* eslint no-underscore-dangle: 0 */
-const db = require('../db');
+const { db } = require('../db');
+
+const config = require('../config');
 
 module.exports = {
   async createContact(req, res) {
@@ -40,15 +42,14 @@ module.exports = {
   },
   async getAllContacts(req, res) {
     try {
-      const contacts = await db.list();
+      const contacts = await db.list(config.db.DB_NAME);
       if (contacts) {
-        res.status(200).send({
-          err: false,
-          messages: [
-            'Successfully fetched contacts',
-          ],
-          contacts: JSON.stringify(contacts),
-        });
+        const allContacts = contacts.rows.map(async (doc) => db.get(doc.id, {
+          revs_info: true,
+        }));
+        const contactValues = await Promise.all(allContacts);
+        console.log(contactValues);
+        res.render('contacts', { contacts: contactValues });
         return;
       }
       res.status(404).send({

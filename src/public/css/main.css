@@ -29,6 +29,7 @@ body {
   text-rendering: optimizeLegibility;
   position: relative;
   min-height: 100vh;
+  width: 100vw;
 }
 
 header {
@@ -46,10 +47,28 @@ header {
   margin: 2rem 0;
 }
 
+.contact-card {
+  margin-top: 2rem;
+}
+
+.contact-card > .card-content {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.card.contact-card:last-child {
+  margin-bottom: 5rem;
+}
+
+.contact-card .card-content {
+  padding: 1.5rem 1.5rem 0 1.5rem;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 100vw;
   padding: 1.5rem;
   border-top: 1px solid #d7d7d7;
 }

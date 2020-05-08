@@ -5,6 +5,6 @@ module.exports = (app) => {
   app.use('/', dbroutes);
   app.use('/', contactRoutes);
   app.get('/', (req, res) => {
-    res.render('index', { title: 'Express CouchDB' });
+    res.render('index');
   });
 };
